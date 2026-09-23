@@ -164,7 +164,7 @@ stated job, in code and in prose.
 
 Also judge on coherence (does each sentence follow from the last) and
 relevance (does it serve this document's purpose); expert slop judgments track
-these two most (Shaib et al., 2025).
+these two (Shaib et al., 2025).
 
 ## Patterns
 

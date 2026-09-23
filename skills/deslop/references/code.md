@@ -4,7 +4,19 @@ Code slop is generated code committed without real review. It often compiles and
 looks plausible, but nobody checked that it is correct, needed, or fits the
 codebase.
 
-## 1. Unspecified features
+## 1. Facts
+
+- Calls to methods, config keys, annotations or CLI flags that do not exist in
+  the used library version.
+- Version numbers in docs or build files that do not match the lockfile.
+- Comments or docs claiming behavior the code does not have.
+- Names that lie: `validateUser` that also saves, `enableCache` that does
+  something else, a class name that no longer fits what it does.
+
+Fix: verify against the actual dependency source or docs. Renaming changes
+code; treat it like any executable change.
+
+## 2. Unspecified features
 
 Code that implements things nobody asked for: extra options, flags, config
 keys, fallbacks, retries, caching, alternative code paths, "for future use"
@@ -20,7 +32,7 @@ Fix: never delete silently. List each unspecified feature with its location and
 what depends on it, then ask. Some were wanted but not written down. Once
 confirmed, remove the feature and its tests, config and docs together.
 
-## 2. Abstraction and structure (stepdown rule)
+## 3. Abstraction and structure (stepdown rule)
 
 One level of abstraction per function. The top-level function should read
 like a summary: a short list of calls at the same level, so the reader can stop
@@ -40,7 +52,7 @@ Fix: extract and name steps; order callers above callees. Keep extractions
 that name a real concept; do not split into one-line wrappers just to shorten
 functions (that is its own slop).
 
-## 3. Over-engineering and defensive noise
+## 4. Over-engineering and defensive noise
 
 Common forms:
 - Interfaces, factories, strategies, builders, wrappers with one
@@ -59,7 +71,7 @@ Common forms:
 Fix: the simplest version that does the stated job, following the codebase's
 conventions. When de-slopping, don't replace one abstraction with another.
 
-## 4. Unnecessary detail
+## 5. Unnecessary detail
 
 Detail no reader or caller needs:
 - Log statements at every step; debug output left at info level.
@@ -71,7 +83,7 @@ Detail no reader or caller needs:
 Fix: consumer test. Before removing logs or changing error messages, check
 that nothing parses them.
 
-## 5. Comments
+## 6. Comments
 
 A comment should say what the code cannot: why, constraints, non-obvious
 consequences, links to specs or bugs. It describes the code as it is now.
@@ -86,7 +98,7 @@ load"), rewrite it as present-tense rationale.
 Fix: delete.
 
 **Step narration.** "// Step 1: validate input", "# 2. Save to DB".
-Often a sign the function should be split into named steps (see section 2).
+Often a sign the function should be split into named steps (see section 3).
 Fix: extract functions with those names, or delete the numbering.
 
 **Trivial doc comments.** Javadoc/JSDoc/docstrings on getters, setters and
@@ -105,7 +117,7 @@ signal. Read it; usually most comments fail the deletion test.
 
 **Stale comments.** Comments that no longer match the code (wrong facts).
 
-## 6. Test code
+## 7. Test code
 
 - Tests that mock everything and assert only that mocks were called.
 - Assertions that cannot fail (`assertNotNull(new Foo())`).
@@ -114,15 +126,3 @@ signal. Read it; usually most comments fail the deletion test.
 - Test names and docstrings that describe more than the test checks.
 
 Fix: report; propose the real assertion. Do not delete tests without approval.
-
-## 7. Facts
-
-- Calls to methods, config keys, annotations or CLI flags that do not exist in
-  the used library version.
-- Version numbers in docs or build files that do not match the lockfile.
-- Comments or docs claiming behavior the code does not have.
-- Names that lie: `validateUser` that also saves, `enableCache` that does
-  something else, a class name that no longer fits what it does.
-
-Fix: verify against the actual dependency source or docs. Renaming changes
-code; treat it like any executable change.

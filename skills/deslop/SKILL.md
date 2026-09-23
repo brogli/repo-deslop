@@ -88,8 +88,7 @@ Classify each finding with one action:
   If you can't name the reader, it's a delete.
 - **shorten**: same claim, fewer words.
 - **rewrite**: the claim is recoverable but badly expressed.
-- **ask author**: hollow with no recoverable meaning, unspecified feature,
-  forced neutrality, or you are unsure.
+- **ask author**: unspecified feature, forced neutrality, or you are unsure.
 - **simplify**: over-engineered; replace with the simplest version that does
   the same job.
 - **keep**: false positive; the pattern is used well and the passage passes

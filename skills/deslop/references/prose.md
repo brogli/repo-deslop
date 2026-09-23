@@ -2,6 +2,12 @@
 
 ## 1. Meaning and level problems
 
+**Invented or contradicting facts.** Hallucinated flags, endpoints, config
+keys, version numbers, benchmark numbers, setup steps never tested; two docs
+(or two sections) that say different things.
+Fix: verify against the code. If the code doesn't settle a contradiction, ask
+the author which is true.
+
 **Hollow passages.** Sounds deep, commits to nothing. Abstract nouns
 ("landscape", "journey", "ecosystem", "paradigm"), stacked metaphors, rhythm
 without claims. Fails the summary test.
@@ -50,12 +56,6 @@ Fix: name the source or delete the claim.
 recommendation, when the author clearly had one.
 Fix: if the original author's position is known (code, commit, issue), state
 it. Otherwise flag; do not pick a side for them.
-
-**Invented or contradicting facts.** Hallucinated flags, endpoints, config
-keys, version numbers, benchmark numbers, setup steps never tested; two docs
-(or two sections) that say different things.
-Fix: verify against the code. If the code doesn't settle a contradiction, ask
-the author which is true.
 
 ## 2. Tone
 

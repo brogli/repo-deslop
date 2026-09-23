@@ -147,8 +147,8 @@ prompts). Read by LLMs on every run, so density matters more here than
 anywhere. Common slop: generic advice the model already follows ("write clean
 code", "follow best practices"), restated rules, motivational framing,
 contradictory instructions added over time.
-Fix: keep only instructions specific to this repo that change behavior. One
-rule, one place.
+Fix: keep only instructions specific to this repo or task that change
+behavior. One rule, one place.
 
 **Commit messages.** Subject says what changed at the top level. Body says why.
 Common slop: bullet list of every file touched, "Updated X, Updated Y",

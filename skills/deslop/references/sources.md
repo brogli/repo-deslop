@@ -1,7 +1,6 @@
 # Sources
 
-Primary sources first. Items marked (unverified) come only from secondary
-reporting.
+Items marked (unverified) come only from secondary reporting.
 
 ## Pattern catalogs and measurements
 

@@ -97,10 +97,10 @@ Classify each finding with one action:
 
 ### 5. Report
 
-Write the report before editing: a 2–3 sentence summary; "Needs author
-decision" first; then findings per file as `L<n> [action] category: problem.
-fix`; cross-module and recurring patterns; keeps and false positives,
-briefly. The report must pass the same checks.
+Write the report before editing: a 2–3 sentence summary; then "Needs author
+decision"; then findings per file as `L<n> [action] category: problem. fix`;
+cross-module and recurring patterns; keeps, briefly. The report must pass the
+same checks.
 
 ### 6. Fix (with `--fix`, or when the user asks after the report)
 

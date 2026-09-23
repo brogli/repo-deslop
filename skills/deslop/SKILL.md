@@ -61,7 +61,10 @@ text), read `references/prose.md`. Before judging source files, read
 `references/code.md`. They list known patterns with a fix for each.
 
 Read each file fully and apply the Tests. Every finding names the test it
-fails; a matching pattern alone is not a finding. Judge in this priority order:
+fails; a matching pattern alone is not a finding. Run the deletion and consumer
+tests on every sentence and comment, not only where a pattern matches:
+unnecessary detail is true and on-topic, so it looks like ordinary text. Judge
+in this priority order:
 1. **Wrong facts**: hallucinated APIs/flags/steps, stale comments, docs that
    contradict code or each other, names that don't match behavior, swallowed
    exceptions.
@@ -87,7 +90,9 @@ Classify each finding with one action:
   forced neutrality, or you are unsure.
 - **simplify**: over-engineered; replace with the simplest version that does
   the same job.
-- **keep**: false positive; the pattern is used well. Record briefly.
+- **keep**: false positive; the pattern is used well and the passage passes
+  the deletion and consumer tests. Being true, concrete or short is not
+  enough. Record briefly.
 
 ### 5. Report
 
@@ -119,6 +124,9 @@ finds nothing, and readers (human or LLM) learn to skim everything.
 **Levels.** Most slop is a level failure: too abstract with nothing underneath
 ("dreamy" claims that commit to nothing), too detailed with no summary to stop
 at, or conclusion and implementation detail mixed in one paragraph or function.
+A summary can be concrete without being detailed: it states the concept in a
+sentence or two and leaves lists of kinds, cases and examples to the level
+below, or drops them.
 
 The stepdown rule (code: one level per function, callers above callees), the
 inverted pyramid/BLUF (prose: most important first) and Minto's Pyramid
@@ -146,8 +154,9 @@ stated job, in code and in prose.
    structure is wrong regardless of wording.
 5. **Traceability** (code): trace each feature, option and branch to the spec.
    No source: unspecified.
-6. **Consumer** (details): who needs it, and would they act differently or
-   misunderstand without it?
+6. **Consumer** (details): name the reader this document is for and what they
+   would do differently or get wrong without it. If you had to invent a
+   reader, or the answer is "good to know", it fails.
 7. **Simplicity**: is there a simpler version that does the same job for the
    same reader? Then this one is over-engineered.
 8. **Verification**: check each factual claim against the code, config and the

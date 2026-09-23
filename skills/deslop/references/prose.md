@@ -16,14 +16,19 @@ state it plainly. If not, delete or flag for the author.
 
 **Too much detail at the wrong level.** Tendency to write at the highest level
 of detail everywhere: config flags in the intro, every edge case in the
-overview, implementation steps in a "What is this" section.
+overview, lists of every category or supported input in the first paragraph,
+implementation steps in a "What is this" section.
 Fix: move it to where its reader looks (later section, reference page, code
 comment, link). If no reader needs it, it is unnecessary detail (next item).
 
 **Unnecessary detail.** True, on-topic, and needed by nobody: incidental
 version numbers, exhaustive lists where two examples make the point, every
 option when one is recommended, background the reader already has, caveats
-for cases that cannot happen, restating what the previous section said.
+for cases that cannot happen, restating what the previous section said,
+what follows from the sentence before ("run it without `--dry-run` to apply
+the changes" after explaining `--dry-run`), behavior the reader will see when
+it happens and needn't prepare for, how a tool works inside when using it
+doesn't depend on that.
 Fix: delete (consumer test).
 
 **Over-structured documents.** More structure than content: headings for
@@ -133,10 +138,11 @@ Fix: delete (unless the file is about chat output, e.g. a test fixture).
 
 ## 7. Document types
 
-**README.** First paragraph: what it is and who it is for, in plain words.
-Then how to run it. Detail (config reference, architecture) further down or in
-separate files. Common slop: feature lists of adjectives, badges and emoji
-before any content, setup steps that do not work.
+**README.** Reader: someone deciding whether to use it and how to start.
+First paragraph: what it is and who it is for, in a sentence or two of plain
+words. Then how to run it. Further down or in separate files: only what that
+reader needs, such as a config reference. Common slop: feature lists of
+adjectives, badges and emoji before any content, setup steps that do not work.
 
 **Agent instruction files** (CLAUDE.md, AGENTS.md, .cursorrules, skill files,
 prompts). Read by LLMs on every run, so density matters more here than

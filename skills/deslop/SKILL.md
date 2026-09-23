@@ -132,10 +132,8 @@ Principle are the same rule.
 **Unnecessary detail.** Detail no reader needs at any level: obvious facts,
 exhaustive enumerations, incidental versions, restated context, caveats for
 impossible cases. Every detail costs human and LLM attention, and on-topic but
-irrelevant detail distracts most.
-
-Move or delete? Ask who needs it. Some reader, elsewhere: move. No reader:
-delete. An appendix of unneeded detail is still slop.
+irrelevant detail distracts most. An appendix of unneeded detail is still
+slop.
 
 **Over-engineering.** Building for requirements nobody stated: features,
 options, layers, config, fallbacks, templates and document structure "for

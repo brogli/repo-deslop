@@ -155,7 +155,8 @@ stated job, in code and in prose.
    No source: unspecified.
 6. **Consumer** (details): name the reader this document is for and what they
    would do differently or get wrong without it. If you had to invent a
-   reader, or the answer is "good to know", it fails.
+   reader, or the answer is "good to know" (sets expectations, reassures,
+   explains internals), it fails.
 7. **Simplicity**: is there a simpler version that does the same job for the
    same reader? Then this one is over-engineered.
 8. **Verification**: check each factual claim against the code, config and the
@@ -188,7 +189,7 @@ toward neutral positions (Abdulhai et al., 2026). These rules prevent that.
    slop. Change only what fails a test.
 6. **Don't overcorrect.** Repetition that clarifies, a contrast that corrects a
    real misconception, a list of parallel items, an em dash in a good sentence:
-   all stay.
+   all stay. This protects wording, never content that fails a test.
 7. **Don't write new slop or over-engineer the fix.** No new tools, scripts,
    files, abstractions or structure to fix slop; a fix that adds more than it
    removes needs a reason. You have tics no list covers: if you rewrote many

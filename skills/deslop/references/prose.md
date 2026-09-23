@@ -46,8 +46,7 @@ detail in one block.
 Fix: one level per paragraph. Summary paragraph first, detail paragraphs after.
 
 **Empty conclusion.** "In summary", "Overall", "Ultimately", "By following these
-steps you can..." restating what was just said. Shreya Shankar: empty summary
-sentences feel conclusive but say nothing.
+steps you can..." restating what was just said.
 Fix: delete, or replace with something new (a caveat, a next step, a link).
 
 **Editorializing.** "It's important to note", "It's worth mentioning", "Needless
@@ -119,8 +118,7 @@ Fix: replace with the plain word only when the sentence is otherwise fine.
 - Bold on every other phrase; bold-lead bullets ("- **Fast:** ...") for things
   that are really a paragraph.
 - Headers for a three-sentence document.
-- Nested bullets for connected reasoning. Shankar: lists help when items are
-  parallel and independent; connected ideas need a paragraph.
+- Nested bullets for connected reasoning.
 - Emoji in headings, bullets, commit subjects.
 - Tables for two or three items.
 - Em dash density far above the rest of the repo.

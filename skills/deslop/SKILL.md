@@ -1,7 +1,7 @@
 ---
 name: deslop
 argument-hint: "[--fix] [scope]"
-description: Find and remove AI slop (verbose, hollow, over-detailed, or over-engineered output from earlier LLMs) in a repository or a selected slice of it, so humans and LLMs can understand the code and docs again. Covers prose (README, docs, Markdown, CLAUDE.md/AGENTS.md, commit and PR text) and code (comments, docstrings, unspecified features, over-engineering, stepdown/abstraction-level violations). Use whenever the user asks to de-slop, clean up AI-written text or code, remove LLM verbosity, audit a repo for AI slop, tighten docs or comments written by Claude or another model, or make a codebase readable again, even if they don't say "slop".
+description: Find and remove AI slop (false claims, over-engineering, detail at the wrong level, unnecessary detail, hollow text) in a repository or a selected slice of it, so humans and LLMs can understand the code and docs again. Covers prose (README, docs, Markdown, CLAUDE.md/AGENTS.md, commit and PR text) and code (comments, docstrings, unspecified features, over-engineering, stepdown/abstraction-level violations). Use whenever the user asks to de-slop, clean up AI-written text or code, remove LLM verbosity, audit a repo for AI slop, tighten docs or comments written by Claude or another model, or make a codebase readable again, even if they don't say "slop".
 ---
 
 # deslop
@@ -35,7 +35,7 @@ Ask only what you cannot find in the repo.
 Before judging any file, read the README, agent instruction files
 (CLAUDE.md, AGENTS.md), build files, the directory tree and the entry points.
 Know what the repo is for and what its conventions are (naming, error
-handling, logging, tests). You judge every file against this.
+handling, logging, tests).
 
 ### 3. Work in slices
 
@@ -58,16 +58,18 @@ does not exist, modules nothing calls.
 
 Before judging prose (docs, Markdown, agent instruction files, commit/PR
 text), read `references/prose.md`. Before judging source files, read
-`references/code.md`. They list known patterns with a fix for each.
+`references/code.md`. Their patterns describe 2023–2025 models and also occur
+in good human writing. Several signs in one place are a reason to read closely,
+never a finding by themselves.
 
 Read each file fully and apply the Tests. Every finding names the test it
-fails; a matching pattern alone is not a finding. Run the deletion and consumer
-tests on every sentence and comment, not only where a pattern matches:
+fails. Run the deletion and consumer tests on every sentence and comment, not
+only where a pattern matches: newer models have tics no list covers, and
 unnecessary detail is true and on-topic, so it looks like ordinary text. Judge
 in this priority order:
 1. **Wrong facts**: hallucinated APIs/flags/steps, stale comments, docs that
    contradict code or each other, names that don't match behavior, swallowed
-   exceptions.
+   exceptions that report success.
 2. **Over-engineering**: unspecified features, abstractions and config with
    one user, defensive code for impossible cases, docs with more structure
    than content.
@@ -86,8 +88,7 @@ Classify each finding with one action:
   If you can't name the reader, it's a delete.
 - **shorten**: same claim, fewer words.
 - **rewrite**: the claim is recoverable but badly expressed.
-- **ask author**: hollow with no recoverable meaning, unspecified feature,
-  forced neutrality, or you are unsure.
+- **ask author**: unspecified feature, forced neutrality, or you are unsure.
 - **simplify**: over-engineered; replace with the simplest version that does
   the same job.
 - **keep**: false positive; the pattern is used well and the passage passes
@@ -132,11 +133,9 @@ The stepdown rule (code: one level per function, callers above callees), the
 inverted pyramid/BLUF (prose: most important first) and Minto's Pyramid
 Principle are the same rule.
 
-**Unnecessary detail.** Detail no reader needs at any level: obvious facts,
-exhaustive enumerations, incidental versions, restated context, caveats for
-impossible cases. Every detail costs human and LLM attention, and on-topic but
-irrelevant detail distracts most. An appendix of unneeded detail is still
-slop.
+**Unnecessary detail.** Detail no reader needs at any level. Every detail costs
+human and LLM attention, and on-topic but irrelevant detail distracts most. An
+appendix of unneeded detail is still slop.
 
 **Over-engineering.** Building for requirements nobody stated: features,
 options, layers, config, fallbacks, templates and document structure "for
@@ -156,7 +155,8 @@ stated job, in code and in prose.
    No source: unspecified.
 6. **Consumer** (details): name the reader this document is for and what they
    would do differently or get wrong without it. If you had to invent a
-   reader, or the answer is "good to know", it fails.
+   reader, or the answer is "good to know" (sets expectations, reassures,
+   explains internals), it fails.
 7. **Simplicity**: is there a simpler version that does the same job for the
    same reader? Then this one is over-engineered.
 8. **Verification**: check each factual claim against the code, config and the
@@ -167,13 +167,6 @@ stated job, in code and in prose.
 Also judge on coherence (does each sentence follow from the last) and
 relevance (does it serve this document's purpose); expert slop judgments track
 these two (Shaib et al., 2025).
-
-## Patterns
-
-The patterns in `references/prose.md` and `references/code.md` describe
-2023–2025 models; newer models have tics no list covers. Every pattern also
-occurs in good human writing. One sign proves little; several in one place are
-a reason to read closely, never a reason to edit. The tests decide.
 
 ## Rewrite rules
 
@@ -196,7 +189,7 @@ toward neutral positions (Abdulhai et al., 2026). These rules prevent that.
    slop. Change only what fails a test.
 6. **Don't overcorrect.** Repetition that clarifies, a contrast that corrects a
    real misconception, a list of parallel items, an em dash in a good sentence:
-   all stay.
+   all stay. This protects wording, never content that fails a test.
 7. **Don't write new slop or over-engineer the fix.** No new tools, scripts,
    files, abstractions or structure to fix slop; a fix that adds more than it
    removes needs a reason. You have tics no list covers: if you rewrote many

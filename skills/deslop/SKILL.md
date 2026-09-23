@@ -106,11 +106,6 @@ them unstaged and say so.
 
 After editing, reread each rewritten passage with the summary test.
 
-### 7. Prevent recurrence (optional)
-
-If the same patterns recur, propose a short CLAUDE.md/AGENTS.md section with
-only the repo-specific rules that were broken, and a commit message template.
-
 ## Core ideas
 
 **Truth.** Everything in the repo is a claim: prose, comments, names, test

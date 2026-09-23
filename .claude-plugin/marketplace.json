@@ -1,0 +1,13 @@
+{
+  "name": "repo-deslop",
+  "description": "The repo-deslop plugin: find and remove AI slop in a repo.",
+  "owner": {
+    "name": "brogli"
+  },
+  "plugins": [
+    {
+      "name": "repo-deslop",
+      "source": "./"
+    }
+  ]
+}

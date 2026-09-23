@@ -1,0 +1,10 @@
+{
+  "name": "repo-deslop",
+  "description": "Find and remove AI slop (false claims, over-engineering, wrong abstraction levels, unnecessary detail, hollow text) in a repo or a slice of it.",
+  "author": {
+    "name": "brogli"
+  },
+  "homepage": "https://github.com/brogli/repo-deslop",
+  "repository": "https://github.com/brogli/repo-deslop",
+  "license": "BSD-3-Clause"
+}

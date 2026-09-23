@@ -113,8 +113,6 @@ Fix: delete. If a file needs section banners, it may need splitting.
 **Comment density.** A file where comment lines approach code lines is a
 signal. Read it; usually most comments fail the deletion test.
 
-**Stale comments.** Comments that no longer match the code (wrong facts).
-
 ## 7. Test code
 
 - Tests that mock everything and assert only that mocks were called.

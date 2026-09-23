@@ -35,7 +35,7 @@ Ask only what you cannot find in the repo.
 Before judging any file, read the README, agent instruction files
 (CLAUDE.md, AGENTS.md), build files, the directory tree and the entry points.
 Know what the repo is for and what its conventions are (naming, error
-handling, logging, tests). You judge every file against this.
+handling, logging, tests).
 
 ### 3. Work in slices
 
@@ -58,11 +58,13 @@ does not exist, modules nothing calls.
 
 Before judging prose (docs, Markdown, agent instruction files, commit/PR
 text), read `references/prose.md`. Before judging source files, read
-`references/code.md`. They list known patterns with a fix for each.
+`references/code.md`. Their patterns describe 2023–2025 models and also occur
+in good human writing. Several signs in one place are a reason to read closely,
+never a finding by themselves.
 
 Read each file fully and apply the Tests. Every finding names the test it
-fails; a matching pattern alone is not a finding. Run the deletion and consumer
-tests on every sentence and comment, not only where a pattern matches:
+fails. Run the deletion and consumer tests on every sentence and comment, not
+only where a pattern matches: newer models have tics no list covers, and
 unnecessary detail is true and on-topic, so it looks like ordinary text. Judge
 in this priority order:
 1. **Wrong facts**: hallucinated APIs/flags/steps, stale comments, docs that
@@ -132,11 +134,9 @@ The stepdown rule (code: one level per function, callers above callees), the
 inverted pyramid/BLUF (prose: most important first) and Minto's Pyramid
 Principle are the same rule.
 
-**Unnecessary detail.** Detail no reader needs at any level: obvious facts,
-exhaustive enumerations, incidental versions, restated context, caveats for
-impossible cases. Every detail costs human and LLM attention, and on-topic but
-irrelevant detail distracts most. An appendix of unneeded detail is still
-slop.
+**Unnecessary detail.** Detail no reader needs at any level. Every detail costs
+human and LLM attention, and on-topic but irrelevant detail distracts most. An
+appendix of unneeded detail is still slop.
 
 **Over-engineering.** Building for requirements nobody stated: features,
 options, layers, config, fallbacks, templates and document structure "for
@@ -167,13 +167,6 @@ stated job, in code and in prose.
 Also judge on coherence (does each sentence follow from the last) and
 relevance (does it serve this document's purpose); expert slop judgments track
 these two (Shaib et al., 2025).
-
-## Patterns
-
-The patterns in `references/prose.md` and `references/code.md` describe
-2023–2025 models; newer models have tics no list covers. Every pattern also
-occurs in good human writing. One sign proves little; several in one place are
-a reason to read closely, never a reason to edit. The tests decide.
 
 ## Rewrite rules
 

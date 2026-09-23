@@ -1,9 +1,5 @@
 # Code patterns: source files and comments
 
-Code slop is generated code committed without real review. It often compiles and
-looks plausible, but nobody checked that it is correct, needed, or fits the
-codebase.
-
 ## 1. Facts
 
 - Calls to methods, config keys, annotations or CLI flags that do not exist in

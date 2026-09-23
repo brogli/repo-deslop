@@ -1,7 +1,7 @@
 ---
 name: deslop
 argument-hint: "[--fix] [scope]"
-description: Find and remove AI slop (verbose, hollow, over-detailed, or over-engineered output from earlier LLMs) in a repository or a selected slice of it, so humans and LLMs can understand the code and docs again. Covers prose (README, docs, Markdown, CLAUDE.md/AGENTS.md, commit and PR text) and code (comments, docstrings, unspecified features, over-engineering, stepdown/abstraction-level violations). Use whenever the user asks to de-slop, clean up AI-written text or code, remove LLM verbosity, audit a repo for AI slop, tighten docs or comments written by Claude or another model, or make a codebase readable again, even if they don't say "slop".
+description: Find and remove AI slop (false claims, over-engineering, detail at the wrong level, unnecessary detail, hollow text) in a repository or a selected slice of it, so humans and LLMs can understand the code and docs again. Covers prose (README, docs, Markdown, CLAUDE.md/AGENTS.md, commit and PR text) and code (comments, docstrings, unspecified features, over-engineering, stepdown/abstraction-level violations). Use whenever the user asks to de-slop, clean up AI-written text or code, remove LLM verbosity, audit a repo for AI slop, tighten docs or comments written by Claude or another model, or make a codebase readable again, even if they don't say "slop".
 ---
 
 # deslop

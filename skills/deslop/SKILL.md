@@ -69,7 +69,7 @@ unnecessary detail is true and on-topic, so it looks like ordinary text. Judge
 in this priority order:
 1. **Wrong facts**: hallucinated APIs/flags/steps, stale comments, docs that
    contradict code or each other, names that don't match behavior, swallowed
-   exceptions.
+   exceptions that report success.
 2. **Over-engineering**: unspecified features, abstractions and config with
    one user, defensive code for impossible cases, docs with more structure
    than content.

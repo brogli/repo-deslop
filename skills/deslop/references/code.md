@@ -8,6 +8,9 @@
 - Comments or docs claiming behavior the code does not have.
 - Names that lie: `validateUser` that also saves, `enableCache` that does
   something else, a class name that no longer fits what it does.
+- Swallowed exceptions that make a failed operation report success (catch,
+  log, return OK). Logging an expected exception that doesn't affect the
+  result is fine.
 
 Fix: verify against the actual dependency source or docs. Renaming changes
 code; treat it like any executable change.
@@ -56,7 +59,6 @@ Common forms:
 - Config for values that never vary.
 - Null checks, try/catch, and validation where the value cannot be null or the
   error cannot happen (check the types and callers first).
-- Swallowed exceptions: catch, log, continue, when failure should propagate.
 - Duplication: re-implementing helpers that exist in the codebase or standard
   library.
 - Ignoring local conventions: different naming, error handling, logging, or
